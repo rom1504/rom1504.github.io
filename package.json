@@ -1,0 +1,52 @@
+{
+  "name": "rom1504-home",
+  "version": "2.31.1",
+  "description": "Rom1504 home.",
+  "main": "server.js",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rom1504/rom1504.github.io.git"
+  },
+  "bin": {
+    "rom1504-home": "./server.js"
+  },
+  "devDependencies": {
+    "@vaadin/vaadin-button": "^23.3.14",
+    "@vaadin/vaadin-combo-box": "^23.3.14",
+    "@vaadin/vaadin-select": "^23.3.14",
+    "@webcomponents/webcomponentsjs": "^2.8.0",
+    "bootstrap": "^5.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "dateformat": "^5.0.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.1",
+    "http-server": "^14.1.1",
+    "json-bigint": "^1.0.0",
+    "lit-element": "^3.3.2",
+    "lit-html": "^2.7.4",
+    "raw-loader": "^4.0.2",
+    "standard": "^17.0.0",
+    "style-loader": "^3.3.3",
+    "to-string-loader": "^1.2.0",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0",
+    "webpack-merge": "^5.9.0"
+  },
+  "scripts": {
+    "build": "webpack --env production",
+    "lint": "standard",
+    "fix": "standard --fix",
+    "prod-start": "npm run build && node server.js 3005",
+    "start": "webpack-dev-server --env development",
+    "test": "npm run lint"
+  },
+  "author": "Romain Beaumont",
+  "license": "MIT"
+}
