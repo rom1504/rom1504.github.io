@@ -18,7 +18,7 @@ const assets = [
   {
     from: resolve('./src/assets'),
     to: join('assets')
-  },
+  }
 ]
 
 const polyfills = [
@@ -40,6 +40,7 @@ const commonConfig = merge([
   {
     entry: './src/main-page.js',
     output: {
+      publicPath: '/',
       path: OUTPUT_PATH,
       filename: '[name].[chunkhash:8].js'
     },
@@ -57,6 +58,14 @@ const commonConfig = merge([
           use: [
             {
               loader: 'file-loader'
+            }
+          ]
+        },
+        {
+          test: /\.md$/,
+          use: [
+            {
+              loader: 'raw-loader'
             }
           ]
         }
