@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romain Beaumont</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+            color: #2c3e50;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .posts-list {
+            list-style: none;
+        }
+
+        .post-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .post-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .post-description {
+            margin-top: 8px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Romain Beaumont</h1>
+        <p>Software Engineer & ML Researcher</p>
+    </header>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            I'm a software engineer and machine learning researcher interested in large-scale data processing,
+            distributed systems, and building practical tools for AI/ML workflows.
+        </p>
+        <p>
+            Find me on <a href="https://github.com/rom1504" target="_blank">GitHub</a> and
+            <a href="https://twitter.com/rom1504" target="_blank">Twitter</a>.
+        </p>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <ul class="posts-list" id="posts-container">
+            <!-- Posts will be loaded here -->
+        </ul>
+    </section>
+
+    <script>
+        // Blog posts metadata
+        const posts = [
+            {
+                id: 'queue-as-dataset',
+                title: 'Queue as Dataset: A Pattern for Building Robust Data Processing Pipelines',
+                date: '2025-11-15',
+                description: 'Learn how treating your dataset as a persistent queue transforms data processing from fragile scripts into robust, resumable, and observable systems.'
+            }
+        ];
+
+        // Render posts
+        const postsContainer = document.getElementById('posts-container');
+        posts.forEach(post => {
+            const li = document.createElement('li');
+            li.className = 'post-item';
+            li.innerHTML = `
+                <div class="post-title">
+                    <a href="post.html?id=${post.id}">${post.title}</a>
+                </div>
+                <div class="post-date">${post.date}</div>
+                <div class="post-description">${post.description}</div>
+            `;
+            postsContainer.appendChild(li);
+        });
+    </script>
+</body>
+</html>
