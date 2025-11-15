@@ -1,5 +1,9 @@
 # Queue as Dataset: A Pattern for Building Robust Data Processing Pipelines
 
+*November 15, 2025*
+
+**[GitHub Repository](https://github.com/rom1504/queue_as_dataset)**
+
 ## The Problem
 
 When building machine learning systems or data processing pipelines, we often face a common set of challenges:
