@@ -55,6 +55,8 @@ Since the queue is a database, you can query it at any time:
 
 The included web UI shows all of this in real-time. You can click any item to see its data at every processing stage.
 
+![Page Queue Web UI](../screenshots/page_queue.png)
+
 ### 3. Multi-Stage Pipelines
 
 Complex processing becomes a series of simple stages. In this project:
@@ -218,6 +220,8 @@ CREATE TABLE page_queue (
     updated_at REAL
 )
 ```
+
+![Page Queue Table](../screenshots/page_queue_table.png)
 
 Core operations:
 
