@@ -28,6 +28,8 @@ The core insight is simple: **treat your dataset as a persistent queue**. Instea
 
 This pattern transforms data processing from a script you run into a **system you operate**.
 
+Throughout this post, I'll use a concrete example to illustrate these concepts: a Wikipedia article processor that scrapes pages and extracts interleaved text/image content. The full implementation is available in the [queue_as_dataset](https://github.com/rom1504/queue_as_dataset) repository.
+
 ## Key Benefits
 
 ### 1. Built-in Fault Tolerance
@@ -43,7 +45,7 @@ except Exception as e:
     queue.mark_failed(item, error=str(e))
 ```
 
-In this project, if web scraping fails for a URL, it's marked as failed but remains in the database. You can later retry just the failed items without reprocessing everything.
+In the example implementation, if web scraping fails for a URL, it's marked as failed but remains in the database. You can later retry just the failed items without reprocessing everything.
 
 ### 2. Real-Time Visibility
 
@@ -158,7 +160,7 @@ The queue handles coordination automatically:
 - No race conditions
 - Graceful handling of worker failures
 
-In this project, the beam worker uses 4 workers with 4 threads each for parallel web scraping.
+In the example implementation, the beam worker uses 4 workers with 4 threads each for parallel web scraping.
 
 ### 9. ML Training as a Processing Stage
 
@@ -204,7 +206,7 @@ for item in page_queue.get_completed():
     new_stats = new_stats_extractor(item.content)
 ```
 
-In this project, web pages are scraped once. You can experiment with different statistics or ML models without re-scraping.
+In the example implementation, web pages are scraped once. You can experiment with different statistics or ML models without re-scraping.
 
 ## Implementation: SQLite as a Queue
 
@@ -259,7 +261,7 @@ For higher throughput, you could swap to PostgreSQL or Redis without changing th
 
 ## Real-World Example: Wikipedia Processing Pipeline
 
-This project demonstrates the pattern with Wikipedia articles:
+To demonstrate this pattern in practice, I built a concrete implementation: a Wikipedia article processor that extracts interleaved text and image content. This example showcases all the benefits discussed above in a real system you can run and explore.
 
 ![Pipeline Architecture](../screenshots/pipeline_diagram.png)
 
@@ -314,4 +316,4 @@ Try it for your next data processing project. Your future self will thank you wh
 
 ---
 
-*This blogpost describes the architecture implemented in the queue_as_dataset project. See the README for setup instructions and examples.*
+*This blog post presents the queue-as-dataset pattern, with the [queue_as_dataset](https://github.com/rom1504/queue_as_dataset) project serving as a concrete example implementation. The repository contains a working Wikipedia article processor that demonstrates all the concepts discussed above. See the README for setup instructions and to run the example yourself.*
