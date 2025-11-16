@@ -1,6 +1,6 @@
 # Queue as Dataset: A Pattern for Building Robust Data Processing Pipelines
 
-*November 15, 2025*
+*By Romain Beaumont • November 15, 2025*
 
 **[GitHub Repository](https://github.com/rom1504/queue_as_dataset)**
 
