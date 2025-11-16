@@ -261,6 +261,8 @@ For higher throughput, you could swap to PostgreSQL or Redis without changing th
 
 This project demonstrates the pattern with Wikipedia articles:
 
+![Pipeline Architecture](../screenshots/pipeline_diagram.png)
+
 **Stage 1: Page Queue (Scraping)**
 - Input: Wikipedia URLs
 - Worker: beam_worker with 16 parallel connections
